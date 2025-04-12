@@ -1,7 +1,11 @@
-name: Deploy static HTML to Pages
+name: Deploy Dharma-Net
 on:
   push:
     branches: ["main"]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -10,8 +14,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # Changed from v3
         with:
-          path: "./"  # Deploys all files in root
+          path: './'
       - name: Deploy
         uses: actions/deploy-pages@v2
