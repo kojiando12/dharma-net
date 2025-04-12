@@ -1,0 +1,14 @@
+name: Test DeepSeek API Key
+on: [workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate API Key
+        run: |
+          curl -s -X POST https://api.deepseek.com/v1/validate \
+            -H "Authorization: Bearer ${{ secrets.DEEPSEEK_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"test":"dharma-net"}' | jq .
+
