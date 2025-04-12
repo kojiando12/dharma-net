@@ -1,0 +1,12 @@
+name: DeepSeek Connection Test
+on: 
+  workflow_dispatch:
+  push:
+    branches: [ ai-integration ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check workflow existence
+        run: echo "This proves GitHub detects the workflow!"
