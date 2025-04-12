@@ -6,4 +6,5 @@ jobs:
     steps:
       - name: Validate API Key
         run: |
-          echo "If you see this, the workflow works!"
+          echo "Workflow is now properly configured!"
+          echo "Key exists: ${{ secrets.DEEPSEEK_API_KEY != '' }}"
